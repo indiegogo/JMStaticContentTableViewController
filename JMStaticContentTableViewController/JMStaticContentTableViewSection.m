@@ -19,12 +19,13 @@
 
 	staticContentCell.configureBlock = configurationBlock;
 	staticContentCell.whenSelectedBlock = whenSelectedBlock;
-
-	configurationBlock(staticContentCell, nil, nil);
-
+    
 	self.staticContentCells = [self.staticContentCells arrayByAddingObject:staticContentCell];
 
     [self _updateCellIndexPaths];
+    
+	configurationBlock(staticContentCell, nil, staticContentCell.indexPath);
+
 }
 
 - (void) insertCell:(JMStaticContentTableViewCellBlock)configurationBlock
